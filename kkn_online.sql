@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1deb2ubuntu2.1
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 13, 2020 at 04:39 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.8
+-- Host: localhost
+-- Generation Time: Jan 14, 2020 at 11:23 AM
+-- Server version: 5.7.27-0ubuntu0.16.04.1
+-- PHP Version: 7.0.33-6+ubuntu16.04.1+deb.sury.org+3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -48,11 +46,17 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 --
 
 CREATE TABLE `kelompok` (
-  `id` int(11) NOT NULL,
   `nim` varchar(11) NOT NULL,
   `nama` varchar(40) NOT NULL,
   `penempatan` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kelompok`
+--
+
+INSERT INTO `kelompok` (`nim`, `nama`, `penempatan`) VALUES
+('41518310001', 'Kelompok 1', 'Malang');
 
 -- --------------------------------------------------------
 
@@ -94,7 +98,8 @@ ALTER TABLE `admin`
 -- Indexes for table `kelompok`
 --
 ALTER TABLE `kelompok`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`nim`),
+  ADD KEY `nim` (`nim`);
 
 --
 -- Indexes for table `mahasiswa`
@@ -111,13 +116,15 @@ ALTER TABLE `mahasiswa`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- Constraints for dumped tables
+--
 
 --
--- AUTO_INCREMENT for table `kelompok`
+-- Constraints for table `kelompok`
 --
 ALTER TABLE `kelompok`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
+  ADD CONSTRAINT `kelompok_ibfk_1` FOREIGN KEY (`nim`) REFERENCES `mahasiswa` (`nim`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
