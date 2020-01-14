@@ -7,6 +7,7 @@ class Admin extends CI_Controller {
             parent::__construct();
             $this->load->model('mahasiswa_model');
             $this->load->model('admin_model');
+            $this->load->model('kelompok_model');
         }
         
     public function index() 
@@ -135,53 +136,51 @@ class Admin extends CI_Controller {
         if ($this->session->userdata('admin_data') != null) {
             $data['judul'] = 'Data Relasi';
             $data['admin'] = $this->session->userdata('admin_data');
-            $data['nim'] = $this->mahasiswa_model->get_nim()->result_array();
-
+            $data['data_mahasiswa'] = $this->mahasiswa_model->get_nim_mahasiswa()->result();
+            
             $this->form_validation->set_rules('kelompok', 'Nama kelompok', 'required');
-            $this->form_validation->set_rules('nim_mahasiswa', 'NIM Mahasiswa', 'required');
+            $this->form_validation->set_rules('nim_mahasiswa[]', 'NIM Mahasiswa', 'required');
     
             if ($this->form_validation->run() == false) {
                 $this->load->view('templates/admin_header', $data);
                 $this->load->view('admin/data_relasi');
                 $this->load->view('templates/footer');
             } else {
-                $kelompok = $this->input->post('nama');
+                $kelompok = $this->input->post('kelompok');
                 $penempatan = '';
 
                 if ($kelompok == 'Kelompok 1') {
-                    $penempatan = '';
+                    $penempatan = 'Malang';
                 }
                 if ($kelompok == 'Kelompok 2') {
-                    $penempatan = '';
+                    $penempatan = 'Banyuwangi';
                 }
                 if ($kelompok == 'Kelompok 3') {
-                    $penempatan = '';
+                    $penempatan = 'Solo';
                 }
                 if ($kelompok == 'Kelompok 4') {
-                    $penempatan = '';
+                    $penempatan = 'Karanganyar';
                 }
                 if ($kelompok == 'Kelompok 5') {
-                    $penempatan = '';
+                    $penempatan = 'Jepara';
                 }
                 
-                $checkbox = $this->input->post('nim_mahasiswa[]');
-
-                for($i = 0; $i < count($checkbox); $i++) {
+                $checkbox = $this->input->post('nim_mahasiswa');
+                
+                for ($i = 0; $i < sizeof($checkbox); $i++) {
                     $data = array(
                         'nim' => $checkbox[$i],
                         'nama' => $kelompok,
                         'penempatan' => $penempatan
                     );
-    
-                    $result = $this->kelompok_model->insert_data($data);
 
-                    if ($result > 0) {
-                        $this->session->set_flashdata("success", "Berhasil menambahkan data relasi mahasiswa!");
-                        redirect('admin/data_relasi');
-                    }
+                    $result = $this->kelompok_model->insert_data($data);
                 }
 
-    
+                if ($result > 0) {
+                    $this->session->set_flashdata("success", "Berhasil menambahkan data relasi mahasiswa!");
+                    redirect('admin/data_relasi');
+                }
             }
         } else {
             redirect('user');
