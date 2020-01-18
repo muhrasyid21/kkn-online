@@ -119,9 +119,32 @@ class Admin extends CI_Controller {
 
     public function daftar_kelompok()
     {
+        $segment = $this->uri->segment('3');
+
         if ($this->session->userdata('admin_data') != null) {
             $data['judul'] = 'Daftar Kelompok';
             $data['admin'] = $this->session->userdata('admin_data');
+            $data['no'] = $segment;
+
+            $nama_kelompok = '';
+            if ($segment == '1') {
+                $nama_kelompok = 'Kelompok 1';
+            }
+            if ($segment == '2') {
+                $nama_kelompok = 'Kelompok 2';
+            }
+            if ($segment == '3') {
+                $nama_kelompok = 'Kelompok 3';
+            }
+            if ($segment == '4') {
+                $nama_kelompok = 'Kelompok 4';
+            }
+            if ($segment == '5') {
+                $nama_kelompok = 'Kelompok 5';
+            }
+
+            $data['data_kelompok'] = $this->kelompok_model->get_by_kelompok($nama_kelompok)->result();
+            $data['jml_mhs'] = $this->kelompok_model->get_by_kelompok($nama_kelompok)->num_rows();
 
             $this->load->view('templates/admin_header', $data);
             $this->load->view('admin/daftar_kelompok');
@@ -185,5 +208,15 @@ class Admin extends CI_Controller {
         } else {
             redirect('user');
         }
+    }
+
+    public function hapus_data($nim) {
+        $where = array(
+            'nim' => $nim
+        );
+
+        $this->mahasiswa_model->delete($where);
+        $this->session->set_flashdata('success', 'Data berhasil dihapus');
+        redirect('admin/daftar_kelompok/1');
     }
 }

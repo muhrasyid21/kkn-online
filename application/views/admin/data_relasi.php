@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container bg-white">
     <form action="<?= base_url('admin/data_relasi'); ?>" method="post">
         <?php if (isset($_SESSION['success'])) : ?>
             <div class="alert alert-success">

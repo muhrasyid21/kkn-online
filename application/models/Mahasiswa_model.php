@@ -9,4 +9,9 @@ class Mahasiswa_model extends CI_Model {
         $this->db->select('nim');
         return $this->db->get('mahasiswa');
     }
+
+    public function delete($where) {
+        $this->db->where($where);
+        $this->db->delete('mahasiswa');
+    }
 }

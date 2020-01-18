@@ -1,20 +1,18 @@
+  <footer class="font-small bg-primary text-white">
+    <div class="row m-3">
     
-    <div class="card mb-2 bg-primary text-white">
-        <div class="row no-gutters">
-            <div class="col-md-4">
-                <img src="<?= base_url('assets/images/Logo_UMB_Putih_besar.png');?>" class="card-img col-md-10 p-3" alt="logo">
-            </div>
-            <div class="col-md-8 p-3">
-                <div class="card-body">
-                    <h5 class="card-title">Kontak Kami</h5>
-                    <p>Muhammad Rasyid</p>
-                    <p>41518310002</p>
-                    <p>Jl Delima Selatan 2 Blok C2/22 Bekasi</p>
-                    <p><small>© Muhammad Rasyid - 41518310002 2020</small></p>
-                </div>
-            </div>
-        </div>
+      <div class="col-md-3 col-lg-2 my-4">
+        <img src="<?= base_url('assets/images/Logo_UMB_Putih_besar.png');?>" class="img-fluid" alt="logo">
+      </div>
+      <div class="col-md-9 col-lg-10 my-3">
+        <h5>Kontak Kami</h5>
+        <p>Muhammad Rasyid</p>
+        <p>41518310002</p>
+        <p>Jl Delima Selatan 2 Blok C2/22 Bekasi</p>
+      </div>
     </div>
+    <div class="text-center py-3 bg-info">© Muhammad Rasyid - 41518310002 2020</div>
+  </footer>
 
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

@@ -8,7 +8,7 @@
 
     <title><?php echo $judul; ?></title>
   </head>
-  <body>
+  <body background="<?= base_url('assets/images/indonesia-bg.png');?>">
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
         <div class="container">

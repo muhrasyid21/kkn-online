@@ -1,4 +1,4 @@
-<div class="container my-3">
+<div class="container my-3 bg-white">
     <h3>Registrasi KKN</h3>
     <h5>Silahkan masukkan biodata Anda</h5>
     <form action="<?= base_url('user/registrasi'); ?>" method="post">

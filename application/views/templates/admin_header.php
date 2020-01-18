@@ -8,7 +8,7 @@
 
     <title><?php echo $judul; ?></title>
   </head>
-  <body>
+  <body background="<?= base_url('assets/images/indonesia-bg.png');?>">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
         <div class="container">
@@ -31,11 +31,11 @@
                         Daftar Kelompok
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="<?= base_url(); ?>admin/daftar_kelompok">Kelompok 1</a>
-                        <a class="dropdown-item" href="<?= base_url(); ?>admin/daftar_kelompok">Kelompok 2</a>
-                        <a class="dropdown-item" href="<?= base_url(); ?>admin/daftar_kelompok">Kelompok 3</a>
-                        <a class="dropdown-item" href="<?= base_url(); ?>admin/daftar_kelompok">Kelompok 4</a>
-                        <a class="dropdown-item" href="<?= base_url(); ?>admin/daftar_kelompok">Kelompok 5</a>
+                        <a class="dropdown-item" href="<?= base_url(); ?>admin/daftar_kelompok/1">Kelompok 1</a>
+                        <a class="dropdown-item" href="<?= base_url(); ?>admin/daftar_kelompok/2">Kelompok 2</a>
+                        <a class="dropdown-item" href="<?= base_url(); ?>admin/daftar_kelompok/3">Kelompok 3</a>
+                        <a class="dropdown-item" href="<?= base_url(); ?>admin/daftar_kelompok/4">Kelompok 4</a>
+                        <a class="dropdown-item" href="<?= base_url(); ?>admin/daftar_kelompok/5">Kelompok 5</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="<?= base_url(); ?>admin/data_relasi">Data Relasi</a>
