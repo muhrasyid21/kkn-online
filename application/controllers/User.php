@@ -6,6 +6,7 @@ class User extends CI_Controller{
         {
             parent::__construct();
             $this->load->model('mahasiswa_model');
+            $this->load->model('kelompok_model');
         }
 
         public function index() 
@@ -56,37 +57,32 @@ class User extends CI_Controller{
     public function daftar_kelompok()
     {
         $segment = $this->uri->segment('3');
+        $data['judul'] = 'Daftar Kelompok';
+        $data['no'] = $segment;
 
-        if ($this->session->userdata('admin_data') != null) {
-            $data['judul'] = 'Daftar Kelompok';
-            $data['admin'] = $this->session->userdata('admin_data');
-            $data['no'] = $segment;
-
-            $nama_kelompok = '';
-            if ($segment == '1') {
-                $nama_kelompok = 'Kelompok 1';
-            }
-            if ($segment == '2') {
-                $nama_kelompok = 'Kelompok 2';
-            }
-            if ($segment == '3') {
-                $nama_kelompok = 'Kelompok 3';
-            }
-            if ($segment == '4') {
-                $nama_kelompok = 'Kelompok 4';
-            }
-            if ($segment == '5') {
-                $nama_kelompok = 'Kelompok 5';
-            }
-
-            $data['data_kelompok'] = $this->kelompok_model->get_by_kelompok($nama_kelompok)->result();
-            $data['jml_mhs'] = $this->kelompok_model->get_by_kelompok($nama_kelompok)->num_rows();
-
-            $this->load->view('templates/user_header', $data);
-            $this->load->view('user/daftar_kelompok');
-            $this->load->view('templates/footer');
-        } else {
-            redirect('user/daftar_kelompok');
+        $nama_kelompok = '';
+        if ($segment == '1') {
+            $nama_kelompok = 'Kelompok 1';
         }
+        if ($segment == '2') {
+            $nama_kelompok = 'Kelompok 2';
+        }
+        if ($segment == '3') {
+            $nama_kelompok = 'Kelompok 3';
+        }
+        if ($segment == '4') {
+            $nama_kelompok = 'Kelompok 4';
+        }
+        if ($segment == '5') {
+            $nama_kelompok = 'Kelompok 5';
+        }
+
+        $data['data_kelompok'] = $this->kelompok_model->get_by_kelompok($nama_kelompok)->result();
+        $data['jml_mhs'] = $this->kelompok_model->get_by_kelompok($nama_kelompok)->num_rows();
+
+        $this->load->view('templates/user_header', $data);
+        $this->load->view('user/daftar_kelompok');
+        $this->load->view('templates/footer');
     }
+
 }

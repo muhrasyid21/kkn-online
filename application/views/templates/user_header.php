@@ -31,11 +31,11 @@
                         Daftar Kelompok
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="<?= base_url(); ?>user/daftar_kelompok">Kelompok 1</a>
-                        <a class="dropdown-item" href="<?= base_url(); ?>user/daftar_kelompok">Kelompok 2</a>
-                        <a class="dropdown-item" href="<?= base_url(); ?>user/daftar_kelompok">Kelompok 3</a>
-                        <a class="dropdown-item" href="<?= base_url(); ?>user/daftar_kelompok">Kelompok 4</a>
-                        <a class="dropdown-item" href="<?= base_url(); ?>user/daftar_kelompok">Kelompok 5</a>
+                        <a class="dropdown-item" href="<?= base_url(); ?>user/daftar_kelompok/1">Kelompok 1</a>
+                        <a class="dropdown-item" href="<?= base_url(); ?>user/daftar_kelompok/2">Kelompok 2</a>
+                        <a class="dropdown-item" href="<?= base_url(); ?>user/daftar_kelompok/3">Kelompok 3</a>
+                        <a class="dropdown-item" href="<?= base_url(); ?>user/daftar_kelompok/4">Kelompok 4</a>
+                        <a class="dropdown-item" href="<?= base_url(); ?>user/daftar_kelompok/5">Kelompok 5</a>
                     </li>
                 </ul>
             </div>
